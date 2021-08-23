@@ -95,6 +95,11 @@ class MenuController extends BaseController
      */
 
     public function getMenuItems() {
-        throw new \Exception('implement in coding task 3');
+        $menus= Menuitem::orderBy("id")->get()->toArray();
+
+        
+        return Menuitem::menuWithChildren($menus,null);
     }
+
+
 }
